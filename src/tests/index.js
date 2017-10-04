@@ -1,9 +1,9 @@
 require('source-map-support').install();
 
-import { assert } from 'chai';
+import functional from './functional';
+import logical from './logical';
 
-describe('AncientSouls/Peer', () => {
-  describe('Peer', () => {
-    it('first', () => {});
-  });
+describe('AncientSouls/Peer:', () => {
+    functional();
+    logical();
 });
