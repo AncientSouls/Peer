@@ -1,2 +1,0 @@
-'use strict';var _chai=require('chai');require('source-map-support').install();describe('AncientSouls/Peer',function(){describe('Peer',function(){it('first',function(){})})});
-//# sourceMappingURL=index.js.map
