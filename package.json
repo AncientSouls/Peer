@@ -1,10 +1,10 @@
 {
     "name": "ancient-peer",
     "version": "0.0.0-alpha.1",
-    "description": "",
+    "description": "Universal router queries and bundles.",
     "main": "lib/index.js",
     "scripts": {
-        "test": "mocha src/tests/index.js --compilers js:babel-core/register --require source-map-support/register",
+        "test": "mocha src/tests/index.js --require babel-core/register",
         "build": "babel ./src/lib --out-dir ./lib",
         "check": "eslint ./src/lib/"
     },
@@ -21,13 +21,15 @@
     },
     "license": "MIT",
     "devDependencies": {
+        "ancient-channels": "^0.1.1",
+        "ancient-cursor": "0.0.7",
         "babel-cli": "^6.26.0",
         "babel-core": "^6.26.0",
         "babel-preset-es2015": "^6.24.1",
         "chai": "^4.1.2",
         "eslint": "^4.6.1",
         "mocha": "^3.5.0",
-        "sinon": "^3.3.0",
+        "sinon": "^4.0.1",
         "source-map-support": "^0.4.18"
     },
     "dependencies": {}
