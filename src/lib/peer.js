@@ -20,12 +20,13 @@ export default class Peer {
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {Object} api - Usage API
+     * @param {Object} apiQuery - Usage API
      * @param {Object} query - Query executed
+     * @param {Boolean=} [needCursor] - Create a cursor
      * @returns {Object} Cursor
      * @description Creates a cursor and processes the collected request packet.
      */
-    exec(channel, api, query) {}
+    exec(channel, apiQuery, query, needCursor = false) {}
 
     /**
      * @protected
