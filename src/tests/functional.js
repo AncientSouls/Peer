@@ -2,13 +2,16 @@ import { assert } from 'chai';
 import crypto from 'crypto';
 import sinon from 'sinon';
 
-import { ApiManager, BundleQueuesManager } from 'ancient-cursor';
 import { Manager } from 'ancient-channels';
 import { Peer } from '../lib/index';
+import {
+    Cursor,
+    ApiManager,
+    CursorsManager,
+    BundleQueuesManager,
+    generateAdapterForBundleQueuesManager
+} from 'ancient-cursor';
 
-/**
- * @description Generating a random string.
- */
 function generatorString() {
     return crypto.randomBytes(32).toString('hex');
 }
@@ -41,8 +44,8 @@ export default function () {
 
         describe('received():', () => {
             var bundleQueuesManager = null;
-            var apiManager = null;
             var channelManager = null;
+            var apiManager = null;
             var channel = null;
             var peer = null;
 
@@ -73,10 +76,60 @@ export default function () {
         });
 
         describe('exec():', () => {
-            it('Create cursor');
-            it('API processing');
-            it('Query processing');
-            it('Callback processing');
+            /* Cursor part */
+            var cursorsManager = null;
+            var adapterBQM = null;
+            var bundleQueuesManager = null;
+
+            /* Channel part */
+            var channelManager = null;
+            var channel = null;
+
+            /* API part */
+            var apiManager = null;
+
+            /* Peer part */
+            var query = null;
+            var peer = null;
+            var apiQuery = null;
+
+            beforeEach(() => {
+                /* Generating of the cursor part */
+                cursorsManager = new CursorsManager(Cursor);
+                adapterBQM = generateAdapterForBundleQueuesManager(cursorsManager);
+                bundleQueuesManager = new BundleQueuesManager(adapterBQM.adapter);
+
+                /* Generation of the channel part */
+                channelManager = new Manager(null, null, null);
+                channel = channelManager.new((channel, pkg) => {
+                    channel.handlerIncomingPacket(pkg);
+                });
+
+                /* Generation of the API part */
+                apiManager = new ApiManager(null, null);
+                apiQuery = { api: generatorString() };
+                query = { query: generatorString() };
+
+                /* Generation of the peer */
+                peer = new Peer(apiManager, cursorsManager, bundleQueuesManager, channelManager);
+            });
+
+            it('Create a cursor', () => {
+                channel.gotPackage = sinon.spy();
+                var cursor = peer.exec(channel, apiQuery, query, false);
+                assert.isNull(cursor);
+
+                cursor = peer.exec(channel, apiQuery, query, true);
+                assert.equal(cursor.get('channel.id'), channel.id);
+                assert.equal(cursor.get('apiQuery'), apiQuery);
+                assert.equal(cursor.get('query'), query);
+            });
+
+            it('Sending data', () => {
+                channel.send = sinon.spy();
+                peer.exec(channel, apiQuery, query, false);
+                assert.isTrue(channel.send.called);
+            });
         });
     });
 }
