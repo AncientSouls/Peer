@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import crypto from 'crypto';
 import sinon from 'sinon';
 
-import { Channel, ChannelsManager } from '../../../ancient-channels/src/lib/index';
+import { Channel, ChannelsManager } from 'ancient-channels';
 import { Peer } from '../lib/index';
 import {
     ApiManager,

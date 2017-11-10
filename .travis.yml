@@ -9,7 +9,8 @@ node_js:
   - "4"
 
 os:
-  - linux
+  - "linux"
+  - "osx"
 
 services:
   - docker
