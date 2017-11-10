@@ -68,7 +68,7 @@ export default class Peer {
             cursor = this.cursorsManager.new({ api, query });
             cursorId = cursor.id;
 
-            cursor.on(null, (old, current, stop, changes, isClone) => {
+            cursor.on(null, (old, current, stop) => {
                 stop();
             });
         }
