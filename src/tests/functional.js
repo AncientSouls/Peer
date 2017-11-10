@@ -2,13 +2,13 @@ import { assert } from 'chai';
 import crypto from 'crypto';
 import sinon from 'sinon';
 
-import { Manager } from 'ancient-channels';
+import { Channel, ChannelsManager } from '../../../ancient-channels/src/lib/index';
 import { Peer } from '../lib/index';
 import {
-    Cursor,
     ApiManager,
-    CursorsManager,
     BundleQueuesManager,
+    Cursor,
+    CursorsManager,
     generateAdapterForBundleQueuesManager
 } from 'ancient-cursor';
 
@@ -19,18 +19,18 @@ function generatorString() {
 export default function () {
     describe('Functional:', () => {
         describe('send():', () => {
-            var channelManager = null;
             var channel = null;
+            var channelsManager = null;
             var peer = null;
 
             beforeEach(() => {
-                channelManager = new Manager(null, null, null);
-                peer = new Peer(null, null, null, channelManager);
-                channel = channelManager.new(sinon.spy());
+                channelsManager = new ChannelsManager(Channel, null, null, null);
+                peer = new Peer(null, null, channelsManager, null);
+                channel = channelsManager.new(sinon.spy());
             });
 
             it('Send query', () => {
-                var query = generatorString();
+                var query = [generatorString()];
                 peer.sendQuery(channel, query);
                 assert.isTrue(channel.sendPackage.called);
             });
@@ -43,55 +43,72 @@ export default function () {
         });
 
         describe('received():', () => {
-            var bundleQueuesManager = null;
-            var channelManager = null;
             var apiManager = null;
+            var bundleQueuesManager = null;
             var channel = null;
+            var channelsManager = null;
             var peer = null;
+            var query = null;
 
             beforeEach(() => {
-                bundleQueuesManager = new BundleQueuesManager();
-                channelManager = new Manager(null, null, null);
-                apiManager = new ApiManager(null, null);
-
-                peer = new Peer(apiManager, null, bundleQueuesManager, channelManager);
-                channel = channelManager.new((channel, pkg) => {
-                    channel.handlerIncomingPacket(pkg);
+                /* Channel part */
+                channelsManager = new ChannelsManager(Channel, null, null, sinon.spy());
+                channel = channelsManager.new((channel, pkg) => {
+                    channel.got(pkg);
                 });
+
+                /* Bundle part */
+                bundleQueuesManager = new BundleQueuesManager();
+                bundleQueuesManager.executeBundle = sinon.spy();
+
+                /* API part */
+                apiManager = new ApiManager(null, null);
+                apiManager.receiveQuery = sinon.spy();
+
+                /* Peer part */
+                peer = new Peer(apiManager, bundleQueuesManager, channelsManager, null);
+                channel.gotPackage = (channel, pkg) => {
+                    peer.gotPackage(channel, pkg);
+                };
+
+                query = {
+                    api: generatorString(),
+                    cursorId: generatorString(),
+                    query: generatorString()
+                };
             });
 
             it('Query is received', () => {
-                apiManager.receiveQuery = sinon.spy();
-                var query = generatorString();
                 peer.sendQuery(channel, query);
-                assert.isTrue(apiManager.receiveQuery.calledWith(query));
+                var args = apiManager.receiveQuery.args.shift();
+                assert.equal(args[1], query.api);
+                assert.equal(args[2], query.query);
+                assert.equal(args[3], query.cursorId);
             });
 
             it('Bundle is received', () => {
-                bundleQueuesManager.executeBundle = sinon.spy();
-                var bundle = generatorString();
-                peer.sendBundle(channel, bundle);
-                assert.isTrue(bundleQueuesManager.executeBundle.calledWith(bundle));
+                peer.sendBundle(channel, query);
+                assert.isTrue(bundleQueuesManager.executeBundle.calledWith(query));
             });
         });
 
         describe('exec():', () => {
             /* Cursor part */
-            var cursorsManager = null;
             var adapterBQM = null;
             var bundleQueuesManager = null;
+            var cursor = null;
+            var cursorsManager = null;
 
             /* Channel part */
-            var channelManager = null;
+            var channelsManager = null;
             var channel = null;
 
             /* API part */
             var apiManager = null;
 
             /* Peer part */
-            var query = null;
             var peer = null;
-            var apiQuery = null;
+            var data = null;
 
             beforeEach(() => {
                 /* Generating of the cursor part */
@@ -100,35 +117,27 @@ export default function () {
                 bundleQueuesManager = new BundleQueuesManager(adapterBQM.adapter);
 
                 /* Generation of the channel part */
-                channelManager = new Manager(null, null, null);
-                channel = channelManager.new((channel, pkg) => {
-                    channel.handlerIncomingPacket(pkg);
-                });
+                channelsManager = new ChannelsManager(Channel, null, null, null);
+                channel = channelsManager.new(sinon.spy());
 
                 /* Generation of the API part */
                 apiManager = new ApiManager(null, null);
-                apiQuery = { api: generatorString() };
-                query = { query: generatorString() };
+                data = generatorString();
 
                 /* Generation of the peer */
-                peer = new Peer(apiManager, cursorsManager, bundleQueuesManager, channelManager);
+                peer = new Peer(apiManager, bundleQueuesManager, channelsManager, cursorsManager);
             });
 
             it('Create a cursor', () => {
-                channel.gotPackage = sinon.spy();
-                var cursor = peer.exec(channel, apiQuery, query, false);
+                cursor = peer.exec(channel, { data }, { data }, false);
                 assert.isNull(cursor);
-
-                cursor = peer.exec(channel, apiQuery, query, true);
-                assert.equal(cursor.get('channel.id'), channel.id);
-                assert.equal(cursor.get('apiQuery'), apiQuery);
-                assert.equal(cursor.get('query'), query);
+                cursor = peer.exec(channel, { data }, { data }, true);
+                assert.isObject(cursor);
             });
 
             it('Sending data', () => {
-                channel.send = sinon.spy();
-                peer.exec(channel, apiQuery, query, false);
-                assert.isTrue(channel.send.called);
+                peer.exec(channel, { data }, { data }, false);
+                assert.isTrue(channel.sendPackage.called);
             });
         });
     });
