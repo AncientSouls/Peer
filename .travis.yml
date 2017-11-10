@@ -1,47 +1,62 @@
 language: node_js
 
 node_js:
-    - "8"
-    - "7"
-    - "6"
-    - "5"
-    - "4"
+  - "9"
+  - "8"
+  - "7"
+  - "6"
+  - "5"
+  - "4"
 
 os:
-    - linux
-    - osx
+  - linux
+
+services:
+  - docker
 
 notifications:
-    email:
-        - "info@valentineus.link"
+  email:
+    - "info@valentineus.link"
 
 before_install:
-    - npm install --global nyc
-    - npm install --global codacy-coverage
+  - npm install --global nyc
+  - npm install --global codacy-coverage
 
 install:
-    - npm install
+  - npm install
 
 script:
-    - npm run check
-    - nyc npm run test
-    - nyc report --reporter=lcov
+  - npm run check
+  - nyc npm run test
+  - nyc report --reporter=lcov
 
 after_success:
-    - nyc report --reporter=lcov
-    - cat ./coverage/lcov.info | codacy-coverage
+  - nyc report --reporter=lcov
+  - cat ./coverage/lcov.info | codacy-coverage
 
 jobs:
-    include:
-        - stage: deploy
-          node_js: "8"
-          os: "linux"
-          before_deploy:
-            - git stash --all
-            - npm install
-            - npm run build
-          deploy:
-            provider: npm
-            skip_cleanup: true
-            email: "info@valentineus.link"
-              api_key: $NPM_PROJECT_TOKEN
+  include:
+      stage: deploy
+      node_js: "9"
+      os: "linux"
+      before_deploy:
+        - git stash --all
+        - npm install
+        - npm run build
+        - npm pack
+      deploy:
+        - provider: npm
+          skip_cleanup: true
+          email: "info@valentineus.link"
+          api_key: $NPM_PROJECT_TOKEN
+          on:
+            tags: true
+
+        - provider: releases
+          skip_cleanup: true
+          file_glob: true
+          file: "ancient-peer-*.tgz"
+          email: "info@valentineus.link"
+          api_key: $GITHUB_PROJECT_TOKEN
+          on:
+            tags: true
