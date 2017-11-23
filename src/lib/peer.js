@@ -65,12 +65,8 @@ export default class Peer {
         var cursor = null;
 
         if (needCursor) {
-            cursor = this.cursorsManager.new({ api, query });
+            cursor = this.cursorsManager.new({ channel, api, query });
             cursorId = cursor.id;
-
-            cursor.on(null, (old, current, stop) => {
-                stop();
-            });
         }
 
         this.sendQuery(channel, [api, query, cursorId]);
