@@ -1,5 +1,5 @@
-import functional from './functional';
+import simple from './simple';
 
 describe('AncientSouls/Peer:', () => {
-    functional();
+    simple();
 });
