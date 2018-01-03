@@ -1,5 +1,5 @@
-import simple from './simple';
+import base from './base';
 
 describe('AncientSouls/Peer:', () => {
-    simple();
+    base();
 });
