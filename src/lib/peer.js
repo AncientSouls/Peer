@@ -1,3 +1,5 @@
+import { connectLocalTransport, createLocalTransport } from 'ancient-channels';
+
 /**
  * @class Peer
  * @memberof module:ancient-peer
@@ -6,19 +8,38 @@ export default class Peer {
     /**
      * @constructs Peer
      * @param {Object} apiManager - Manager of many api for sync data with cursors
-     * @param {Object} bundleQueuesManager - Queue of bundles execution
-     * @param {Object} channelsManager - Single channel manager
-     * @param {Object} cursorsManager - Small registrar of cursors
+     * @param {Object} bundleQueuesManager - Queue of bundles execution for multiple cursors
+     * @param {Object} channelsManager - Multi-channel manager
+     * @param {Object} cursorsManager - Manager of the set of cursors
      */
     constructor(apiManager, bundleQueuesManager, channelsManager, cursorsManager) {
+        /**
+         * @type {Object}
+         * @description Manager of many api for sync data with cursors.
+         */
         this.apiManager = apiManager || {};
+
+        /**
+         * @type {Object}
+         * @description Queue of bundles execution for multiple cursors.
+         */
         this.bundleQueuesManager = bundleQueuesManager || {};
+
+        /**
+         * @type {Object}
+         * @description Multi-channel manager.
+         */
         this.channelsManager = channelsManager || {};
+
+        /**
+         * @type {Object}
+         * @description Manager of the set of cursors.
+         */
         this.cursorsManager = cursorsManager || {};
 
         /**
          * @type {Function}
-         * @description Receive packages to send.
+         * @description Used to send a package from the api manager.
          */
         this.apiManager.adapterSend = (channel, bundle) => {
             this._sendBundles(channel, bundle);
@@ -26,45 +47,72 @@ export default class Peer {
 
         /**
          * @type {Function}
-         * @description Adapter for disconnection.
+         * @description Used when disconnecting the communication channel.
          */
         this.channelsManager.onDisconnected = (channel) => {
-            this.channelDisconnected(channel);
+            this.apiManager.channelDisconnected(channel);
         };
 
         /**
          * @type {Function}
-         * @description Adapter for receiving data.
+         * @description Used when receiving incoming packets.
          */
         this.channelsManager.gotPackage = (channel, data) => {
-            this.gotPackage(channel, data);
+            this.got(channel, data);
         };
+
+        /**
+         * @type {Function}
+         * @description Used to synchronize the communication channel.
+         */
+        this._connectTransport = connectLocalTransport;
+
+        /**
+         * @type {Function}
+         * @description Used to create a communication channel.
+         */
+        this._createTransport = createLocalTransport;
     }
 
     /**
      * @protected
-     * @param {Object} channel - Communication channel
-     * @description Handling the detached channel.
+     * @param {Function} sendPackage - Function of sending data
+     * @return {Object} Channel
+     * @description Create a communication channel.
      */
-    channelDisconnected(channel) {
-        this.apiManager.channelDisconnected(channel);
+    createChannel(sendPackage) {
+        return this.channelsManager.new(sendPackage);
+    }
+
+    /**
+     * @protected
+     * @param {Object} peer - External peer
+     * @return {Object} Channel
+     * @description Creating a communication channel between peers.
+     */
+    connect(peer) {
+        var channel_local = this.createChannel();
+        var channel_remote = peer.createChannel();
+        this._createTransport(channel_local, channel_remote);
+        this._connectTransport(channel_local, channel_remote);
+        return channel_local;
     }
 
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {Object} api - Usage API
-     * @param {Object} query - Query executed
-     * @param {Boolean=} [needCursor] - Create a cursor
+     * @param {Object} api - Interface for instance API
+     * @param {Object} query - Request to execute
+     * @param {Boolean=} [create] - Creating a cursor
      * @returns {Object} Cursor
-     * @description Creates a cursor and processes the collected request packet.
+     * @description Creates a cursor and requests data on a remote peer.
      */
-    exec(channel, api, query, needCursor = true) {
-        needCursor = !!needCursor;
+    exec(channel, api, query, create = true) {
+        create = !!create;
         var cursorId = null;
         var cursor = null;
 
-        if (needCursor) {
+        if (create) {
             cursor = this.cursorsManager.new({ channel, api, query });
             cursorId = cursor.id;
         }
@@ -76,8 +124,8 @@ export default class Peer {
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {String} request - Incoming packet
-     * @description Processing incoming packets.
+     * @param {String} request - Incoming data
+     * @description Process the incoming data.
      */
     got(channel, request) {
         if (request.queries) {
@@ -91,8 +139,25 @@ export default class Peer {
 
     /**
      * @protected
-     * @param {Object} bundles - Received bundle
-     * @description Processes the received bundle.
+     * @param {Object} apiManager - Manager of many api for sync data with cursors
+     * @param {Object} bundleQueuesManager - Queue of bundles execution for multiple cursors
+     * @param {Object} channelsManager - Multi-channel manager
+     * @param {Object} cursorsManager - Manager of the set of cursors
+     * @returns {Object} Peer
+     * @description Create a new peer from the constructor.
+     */
+    new(apiManager, bundleQueuesManager, channelsManager, cursorsManager) {
+        apiManager = apiManager || this.apiManager;
+        bundleQueuesManager = bundleQueuesManager || this.bundleQueuesManager;
+        channelsManager = channelsManager || this.channelsManager;
+        cursorsManager = cursorsManager || this.cursorsManager;
+        return new Peer(apiManager, bundleQueuesManager, channelsManager, cursorsManager);
+    }
+
+    /**
+     * @protected
+     * @param {Object} bundles - Received bundles
+     * @description Processes the received bundes.
      */
     _handlerBundle(bundles) {
         bundles.forEach(bundle => {
@@ -103,8 +168,8 @@ export default class Peer {
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {Object} queries - Received query
-     * @description Processes the received query.
+     * @param {Object} queries - Received queries
+     * @description Processes the received queries.
      */
     _handlerQuery(channel, queries) {
         queries.forEach(query => {
@@ -116,7 +181,7 @@ export default class Peer {
      * @protected
      * @param {Object} channel - Communication channel
      * @param {Object} bundle - Bundle to send
-     * @description Sending a bundle.
+     * @description Used to send a bundle.
      */
     _sendBundles(channel, bundle) {
         channel.send({ bundles: [bundle] });
@@ -126,7 +191,7 @@ export default class Peer {
      * @protected
      * @param {Object} channel - Communication channel
      * @param {Object} query - Query to send
-     * @description Sending a query.
+     * @description Used to send a request.
      */
     _sendQuery(channel, query) {
         channel.send({ queries: [query] });
