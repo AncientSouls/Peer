@@ -49,7 +49,7 @@ export default class Peer {
          * @description Used when disconnecting the communication channel.
          */
         this.channelsManager.onDisconnected = (channel) => {
-            this.apiManager.channelDisconnected(channel);
+            this.apiManager.channelDisconnected(channel.id);
         };
 
         /**

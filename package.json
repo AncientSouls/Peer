@@ -1,6 +1,6 @@
 {
     "name": "ancient-peer",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Universal router queries and bundles.",
     "main": "lib/index.js",
     "scripts": {
