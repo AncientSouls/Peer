@@ -23,9 +23,9 @@ export default function () {
         var apiManager = new ApiManager(
             function adapterFindApi(apiQuery) {
                 return new Promise((resolve) => resolve({
-                    receiveQuery(channel, query, cursorId, sendBundles) {
+                    receiveQuery(channelId, query, cursorId, sendBundles) {
                         setTimeout(() => {
-                            sendBundles(channel, {
+                            sendBundles(channelId, {
                                 cursor: cursorId,
                                 type: 'set',
                                 path: query.path,
@@ -75,9 +75,9 @@ export default function () {
         var apiManager = new ApiManager(
             function adapterFindApi(apiQuery) {
                 return new Promise((resolve) => resolve({
-                    receiveQuery(channel, query, cursorId, sendBundles) {
+                    receiveQuery(channelId, query, cursorId, sendBundles) {
                         setTimeout(() => {
-                            sendBundles(channel, {
+                            sendBundles(channelId, {
                                 cursor: cursorId,
                                 type: 'set',
                                 path: 'a',

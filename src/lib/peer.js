@@ -40,8 +40,8 @@ export default class Peer {
          * @type {Function}
          * @description Used to send a package from the api manager.
          */
-        this.apiManager.adapterSend = (channel, bundles) => {
-            this._sendBundles(channel, bundles);
+        this.apiManager.adapterSend = (channelId, bundles) => {
+            this._sendBundles(channelId, bundles);
         };
 
         /**
@@ -108,7 +108,7 @@ export default class Peer {
             cursor = this.cursorsManager.new({ channel, api, query });
             cursorId = cursor.id;
         }
-
+        
         this._sendQuery(channel, { api, query, cursorId });
         return cursor;
     }
@@ -165,18 +165,22 @@ export default class Peer {
      */
     _handlerQuery(channel, queries) {
         queries.forEach(query => {
-            this.apiManager.receiveQuery(channel, query.api, query.query, query.cursorId);
+            this.apiManager.receiveQuery(channel.id, query.api, query.query, query.cursorId);
         });
     }
 
     /**
      * @protected
-     * @param {Object} channel - Communication channel
+     * @param channelId - Communication channel id
      * @param {Object[]} bundles - Bundles to send
      * @description Used to send a bundle.
      */
-    _sendBundles(channel, bundles) {
-        channel.send({ bundles });
+    _sendBundles(channelId, bundles) {
+        var channel = this.channelsManager.channels[channelId];
+        if (channel) channel.send({ bundles });
+        /**
+         * @todo throws error
+         */
     }
 
     /**
