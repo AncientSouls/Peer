@@ -1,5 +1,4 @@
-import { connectLocalTransport, createLocalTransport } from 'ancient-channels';
-
+import { createLocalTransport } from 'ancient-channels';
 /**
  * @class Peer
  * @memberof module:ancient-peer
@@ -41,8 +40,8 @@ export default class Peer {
          * @type {Function}
          * @description Used to send a package from the api manager.
          */
-        this.apiManager.adapterSend = (channel, bundle) => {
-            this._sendBundles(channel, bundle);
+        this.apiManager.adapterSend = (channel, bundles) => {
+            this._sendBundles(channel, bundles);
         };
 
         /**
@@ -60,12 +59,6 @@ export default class Peer {
         this.channelsManager.gotPackage = (channel, data) => {
             this.got(channel, data);
         };
-
-        /**
-         * @type {Function}
-         * @description Used to synchronize the communication channel.
-         */
-        this._connectTransport = connectLocalTransport;
 
         /**
          * @type {Function}
@@ -94,7 +87,6 @@ export default class Peer {
         var channel_local = this.createChannel();
         var channel_remote = peer.createChannel();
         this._createTransport(channel_local, channel_remote);
-        this._connectTransport(channel_local, channel_remote);
         return channel_local;
     }
 
@@ -180,20 +172,20 @@ export default class Peer {
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {Object} bundle - Bundle to send
+     * @param {Object[]} bundles - Bundles to send
      * @description Used to send a bundle.
      */
-    _sendBundles(channel, bundle) {
-        channel.send({ bundles: [bundle] });
+    _sendBundles(channel, bundles) {
+        channel.send({ bundles });
     }
 
     /**
      * @protected
      * @param {Object} channel - Communication channel
-     * @param {Object} query - Query to send
+     * @param {...Object} queries - Queries to send
      * @description Used to send a request.
      */
-    _sendQuery(channel, query) {
-        channel.send({ queries: [query] });
+    _sendQuery(channel, ...queries) {
+        channel.send({ queries });
     }
 }
