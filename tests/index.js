@@ -3,7 +3,7 @@ exports.__esModule = true;
 require('source-map-support').install();
 require("mocha");
 var peer_1 = require("./peer");
-describe('AncientSouls/Mixins:', function () {
+describe('AncientSouls/Peer:', function () {
     peer_1["default"]();
 });
 //# sourceMappingURL=index.js.map
