@@ -1,0 +1,65 @@
+[ancient-peer](../README.md) > [IPeerQuery](../interfaces/ipeerquery.md)
+
+
+
+# Interface: IPeerQuery
+
+
+## Properties
+<a id="apiquery"></a>
+
+###  apiQuery
+
+**●  apiQuery**:  *`any`* 
+
+*Defined in [lib/peer.ts:57](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L57)*
+
+
+
+
+
+___
+
+<a id="cursorid"></a>
+
+###  cursorId
+
+**●  cursorId**:  *`string`* 
+
+*Defined in [lib/peer.ts:55](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L55)*
+
+
+
+
+
+___
+
+<a id="query"></a>
+
+###  query
+
+**●  query**:  *`any`* 
+
+*Defined in [lib/peer.ts:58](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L58)*
+
+
+
+
+
+___
+
+<a id="queryid"></a>
+
+###  queryId
+
+**●  queryId**:  *`string`* 
+
+*Defined in [lib/peer.ts:56](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L56)*
+
+
+
+
+
+___
+
+

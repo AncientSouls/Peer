@@ -185,9 +185,11 @@ function mixin<T extends TClass<IInstance>>(
     
     sendQuery({ id: cursorId, queryId, query: { channelId, apiQuery, query } }) {
       const channel = this.channelsManager.nodes[channelId];
-      if (channel) channel.send({ queries: [
-        { cursorId, queryId, apiQuery, query },
-      ]});
+      if (channel) {
+        channel.send({ queries: [
+          { cursorId, queryId, apiQuery, query },
+        ]});
+      }
     }
     
     sendBundles(channelId, ...bundles) {
@@ -201,12 +203,15 @@ function mixin<T extends TClass<IInstance>>(
     }
     
     gotPkg(channelId, pkg) {
-      if (pkg.data.queries)
+      if (pkg.data.queries) {
         this.handleQueries(channelId, pkg);
-      if (pkg.data.bundles)
+      }
+      if (pkg.data.bundles) {
         this.handleBundles(channelId, pkg);
-      if (pkg.data.destroyed)
+      }
+      if (pkg.data.destroyed) {
         this.handleDestroyed(channelId, pkg);
+      }
     }
     
     cursorDestroyed(channelId, cursorId) {
