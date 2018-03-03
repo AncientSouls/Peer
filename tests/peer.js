@@ -1,6 +1,5 @@
 "use strict";
 exports.__esModule = true;
-require("mocha");
 var _ = require("lodash");
 var chai_1 = require("chai");
 var peer_1 = require("../lib/peer");
