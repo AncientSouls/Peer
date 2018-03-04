@@ -52,7 +52,7 @@ Coming soon...
 
 **Τ TPeer**:  *[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)* 
 
-*Defined in [peer.ts:39](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L39)*
+*Defined in [peer.ts:39](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L39)*
 
 
 
@@ -66,7 +66,7 @@ ___
 
 **Τ TPeerApiQuery**:  *`any`* 
 
-*Defined in [peer.ts:91](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L91)*
+*Defined in [peer.ts:91](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L91)*
 
 
 
@@ -80,7 +80,7 @@ ___
 
 **Τ TPeerCursor**:  *[IPeerCursor](interfaces/ipeercursor.md)`ICursorEventsList`* 
 
-*Defined in [peer.ts:52](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L52)*
+*Defined in [peer.ts:52](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L52)*
 
 
 
@@ -96,7 +96,7 @@ ___
 
 **●  MixedPeer**:  *`TClass`.<[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)>*  =  mixin(Node)
 
-*Defined in [peer.ts:273](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L273)*
+*Defined in [peer.ts:273](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L273)*
 
 
 
@@ -114,7 +114,7 @@ ___
 
 
 
-*Defined in [peer.ts:124](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L124)*
+*Defined in [peer.ts:124](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L124)*
 
 
 
@@ -144,7 +144,7 @@ ___
 
 
 
-*Defined in [peer.ts:139](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L139)*
+*Defined in [peer.ts:139](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L139)*
 
 
 

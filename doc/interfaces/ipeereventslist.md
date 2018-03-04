@@ -30,7 +30,7 @@
 
 *Inherited from INodeEventsList.destroyed*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:8*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:8*
 
 
 

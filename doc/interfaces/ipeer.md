@@ -37,7 +37,7 @@
 
 *Inherited from INode.__new*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:11*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:11*
 
 
 
@@ -63,7 +63,7 @@
 
 **●  channelsManager**:  *`TChannelsManager`* 
 
-*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L102)*
+*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L102)*
 
 
 
@@ -77,7 +77,7 @@ ___
 
 **●  cursorsManager**:  *`TCursorsManager`* 
 
-*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L103)*
+*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L103)*
 
 
 
@@ -93,7 +93,7 @@ ___
 
 *Inherited from INode.destroy*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:15*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:15*
 
 
 #### Type declaration
@@ -120,7 +120,7 @@ ___
 
 *Inherited from IEvents.emitter*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:5*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/events.d.ts:5*
 
 
 
@@ -136,7 +136,7 @@ ___
 
 *Inherited from INode.generateId*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:13*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:13*
 
 
 #### Type declaration
@@ -163,7 +163,7 @@ ___
 
 *Inherited from INode.id*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:11*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:11*
 
 
 
@@ -179,7 +179,7 @@ ___
 
 *Inherited from INode.isDestroyed*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:14*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/node.d.ts:14*
 
 
 
@@ -193,7 +193,7 @@ ___
 
 **●  relations**:  *[IPeerRelationsChannels](ipeerrelationschannels.md)* 
 
-*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L105)*
+*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L105)*
 
 
 
@@ -211,7 +211,7 @@ ___
 
 
 
-*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L117)*
+*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L117)*
 
 
 
@@ -241,7 +241,7 @@ ___
 
 
 
-*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L109)*
+*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L109)*
 
 
 
@@ -271,7 +271,7 @@ ___
 
 
 
-*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L116)*
+*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L116)*
 
 
 
@@ -304,7 +304,7 @@ ___
 
 *Inherited from IEvents.emit*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:6*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/events.d.ts:6*
 
 
 
@@ -338,7 +338,7 @@ ___
 
 
 
-*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L110)*
+*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L110)*
 
 
 
@@ -370,7 +370,7 @@ ___
 
 
 
-*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L107)*
+*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L107)*
 
 
 
@@ -401,7 +401,7 @@ ___
 
 
 
-*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L115)*
+*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L115)*
 
 
 
@@ -432,7 +432,7 @@ ___
 
 
 
-*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L120)*
+*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L120)*
 
 
 
@@ -463,7 +463,7 @@ ___
 
 
 
-*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L121)*
+*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L121)*
 
 
 
@@ -494,7 +494,7 @@ ___
 
 
 
-*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L118)*
+*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L118)*
 
 
 
@@ -525,7 +525,7 @@ ___
 
 
 
-*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L119)*
+*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L119)*
 
 
 
@@ -558,7 +558,7 @@ ___
 
 *Inherited from IEvents.off*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:9*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/events.d.ts:9*
 
 
 
@@ -594,7 +594,7 @@ ___
 
 *Inherited from IEvents.on*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:7*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/events.d.ts:7*
 
 
 
@@ -630,7 +630,7 @@ ___
 
 *Inherited from IEvents.once*
 
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:8*
+*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-cursor/node_modules/ancient-mixins/lib/events.d.ts:8*
 
 
 
@@ -664,7 +664,7 @@ ___
 
 
 
-*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L113)*
+*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L113)*
 
 
 
@@ -695,7 +695,7 @@ ___
 
 
 
-*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L114)*
+*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L114)*
 
 
 
@@ -725,7 +725,7 @@ ___
 
 
 
-*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L112)*
+*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L112)*
 
 
 
@@ -755,7 +755,7 @@ ___
 
 
 
-*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L111)*
+*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/596ef6d/src/lib/peer.ts#L111)*
 
 
 
