@@ -6,7 +6,6 @@
 
 ### Classes
 
-* [Peer](classes/peer.md)
 
 
 ### Interfaces
@@ -53,7 +52,7 @@
 
 **Τ TPeer**:  *[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)* 
 
-*Defined in [lib/peer.ts:39](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L39)*
+*Defined in [lib/peer.ts:39](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L39)*
 
 
 
@@ -67,7 +66,7 @@ ___
 
 **Τ TPeerApiQuery**:  *`any`* 
 
-*Defined in [lib/peer.ts:91](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L91)*
+*Defined in [lib/peer.ts:91](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L91)*
 
 
 
@@ -81,7 +80,7 @@ ___
 
 **Τ TPeerCursor**:  *[IPeerCursor](interfaces/ipeercursor.md)`ICursorEventsList`* 
 
-*Defined in [lib/peer.ts:52](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L52)*
+*Defined in [lib/peer.ts:52](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L52)*
 
 
 
@@ -97,7 +96,7 @@ ___
 
 **●  MixedPeer**:  *`TClass`.<[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)>*  =  mixin(Node)
 
-*Defined in [lib/peer.ts:273](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L273)*
+*Defined in [lib/peer.ts:273](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L273)*
 
 
 
@@ -115,7 +114,7 @@ ___
 
 
 
-*Defined in [tests/peer.ts:6](https://github.com/AncientSouls/Peer/blob/53cf761/src/tests/peer.ts#L6)*
+*Defined in [tests/peer.ts:6](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/tests/peer.ts#L6)*
 
 
 
@@ -137,7 +136,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:124](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L124)*
+*Defined in [lib/peer.ts:124](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L124)*
 
 
 
@@ -167,7 +166,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:139](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L139)*
+*Defined in [lib/peer.ts:139](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L139)*
 
 
 

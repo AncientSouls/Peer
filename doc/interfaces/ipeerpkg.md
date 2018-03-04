@@ -7,7 +7,7 @@
 ## Hierarchy
 
 
- `IPkg`
+ `any`
 
 **↳ IPeerPkg**
 
@@ -19,31 +19,13 @@
 
 
 ## Properties
-<a id="channel"></a>
-
-###  channel
-
-**●  channel**:  *`IPkgSectionChannel`* 
-
-*Inherited from IPkg.channel*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-channels/lib/channel.d.ts:13*
-
-
-
-
-
-___
-
 <a id="data"></a>
 
 ###  data
 
 **●  data**:  *`object`* 
 
-*Overrides IPkg.data*
-
-*Defined in [lib/peer.ts:62](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L62)*
+*Defined in [lib/peer.ts:62](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L62)*
 
 
 #### Type declaration

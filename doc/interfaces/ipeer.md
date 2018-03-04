@@ -9,51 +9,15 @@
 ## Hierarchy
 
 
- `INode`.<`IEventsList`>
+ `any`
 
 **↳ IPeer**
 
-↳  [Peer](../classes/peer.md)
 
 
 
 
 
-
-
-
-
-
-## Indexable
-
-\[key: `string`\]:&nbsp;`any`
-
-## Constructors
-<a id="constructor"></a>
-
-
-### ⊕ **new IPeer**(id?: *`string`*): `any`
-
-
-*Inherited from INode.__new*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:11*
-
-
-
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| id | `string`   |  - |
-
-
-
-
-
-**Returns:** `any`
-
----
 
 
 ## Properties
@@ -63,7 +27,7 @@
 
 **●  channelsManager**:  *`TChannelsManager`* 
 
-*Defined in [lib/peer.ts:102](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L102)*
+*Defined in [lib/peer.ts:102](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L102)*
 
 
 
@@ -77,109 +41,7 @@ ___
 
 **●  cursorsManager**:  *`TCursorsManager`* 
 
-*Defined in [lib/peer.ts:103](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L103)*
-
-
-
-
-
-___
-
-<a id="destroy"></a>
-
-###  destroy
-
-**●  destroy**:  *`function`* 
-
-*Inherited from INode.destroy*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:15*
-
-
-#### Type declaration
-►(): `void`
-
-
-
-
-
-**Returns:** `void`
-
-
-
-
-
-
-___
-
-<a id="emitter"></a>
-
-###  emitter
-
-**●  emitter**:  *`EventEmitter`* 
-
-*Inherited from IEvents.emitter*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:5*
-
-
-
-
-
-___
-
-<a id="generateid"></a>
-
-###  generateId
-
-**●  generateId**:  *`function`* 
-
-*Inherited from INode.generateId*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:13*
-
-
-#### Type declaration
-►(): `string`
-
-
-
-
-
-**Returns:** `string`
-
-
-
-
-
-
-___
-
-<a id="id"></a>
-
-###  id
-
-**●  id**:  *`string`* 
-
-*Inherited from INode.id*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:11*
-
-
-
-
-
-___
-
-<a id="isdestroyed"></a>
-
-###  isDestroyed
-
-**●  isDestroyed**:  *`boolean`* 
-
-*Inherited from INode.isDestroyed*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/node.d.ts:14*
+*Defined in [lib/peer.ts:103](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L103)*
 
 
 
@@ -193,7 +55,7 @@ ___
 
 **●  relations**:  *[IPeerRelationsChannels](ipeerrelationschannels.md)* 
 
-*Defined in [lib/peer.ts:105](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L105)*
+*Defined in [lib/peer.ts:105](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L105)*
 
 
 
@@ -211,7 +73,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:117](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L117)*
+*Defined in [lib/peer.ts:117](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L117)*
 
 
 
@@ -241,7 +103,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:109](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L109)*
+*Defined in [lib/peer.ts:109](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L109)*
 
 
 
@@ -271,7 +133,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:116](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L116)*
+*Defined in [lib/peer.ts:116](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L116)*
 
 
 
@@ -294,42 +156,6 @@ ___
 
 ___
 
-<a id="emit"></a>
-
-###  emit
-
-► **emit**IE(eventName: *`string`*, data: *`IEventsList[IE]`*): `this`
-
-
-
-*Inherited from IEvents.emit*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:6*
-
-
-
-**Type parameters:**
-
-#### IE :  `keyof IEventsList`
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| eventName | `string`   |  - |
-| data | `IEventsList[IE]`   |  - |
-
-
-
-
-
-**Returns:** `this`
-
-
-
-
-
-___
-
 <a id="exec"></a>
 
 ###  exec
@@ -338,7 +164,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:110](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L110)*
+*Defined in [lib/peer.ts:110](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L110)*
 
 
 
@@ -370,7 +196,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:107](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L107)*
+*Defined in [lib/peer.ts:107](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L107)*
 
 
 
@@ -401,7 +227,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:115](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L115)*
+*Defined in [lib/peer.ts:115](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L115)*
 
 
 
@@ -432,7 +258,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:120](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L120)*
+*Defined in [lib/peer.ts:120](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L120)*
 
 
 
@@ -463,7 +289,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:121](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L121)*
+*Defined in [lib/peer.ts:121](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L121)*
 
 
 
@@ -494,7 +320,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:118](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L118)*
+*Defined in [lib/peer.ts:118](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L118)*
 
 
 
@@ -525,7 +351,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:119](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L119)*
+*Defined in [lib/peer.ts:119](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L119)*
 
 
 
@@ -548,114 +374,6 @@ ___
 
 ___
 
-<a id="off"></a>
-
-###  off
-
-► **off**IE(eventName: *`string`*, listener: *`function`*): `this`
-
-
-
-*Inherited from IEvents.off*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:9*
-
-
-
-**Type parameters:**
-
-#### IE :  `keyof IEventsList`
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| eventName | `string`   |  - |
-| listener | `function`   |  - |
-
-
-
-
-
-**Returns:** `this`
-
-
-
-
-
-___
-
-<a id="on"></a>
-
-###  on
-
-► **on**IE(eventName: *`string`*, listener: *`function`*): `this`
-
-
-
-*Inherited from IEvents.on*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:7*
-
-
-
-**Type parameters:**
-
-#### IE :  `keyof IEventsList`
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| eventName | `string`   |  - |
-| listener | `function`   |  - |
-
-
-
-
-
-**Returns:** `this`
-
-
-
-
-
-___
-
-<a id="once"></a>
-
-###  once
-
-► **once**IE(eventName: *`string`*, listener: *`function`*): `this`
-
-
-
-*Inherited from IEvents.once*
-
-*Defined in /home/ubuntu/workspace/dev/packages/ancient-peer/node_modules/ancient-mixins/lib/events.d.ts:8*
-
-
-
-**Type parameters:**
-
-#### IE :  `keyof IEventsList`
-**Parameters:**
-
-| Param | Type | Description |
-| ------ | ------ | ------ |
-| eventName | `string`   |  - |
-| listener | `function`   |  - |
-
-
-
-
-
-**Returns:** `this`
-
-
-
-
-
-___
-
 <a id="sendbundles"></a>
 
 ###  sendBundles
@@ -664,7 +382,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:113](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L113)*
+*Defined in [lib/peer.ts:113](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L113)*
 
 
 
@@ -695,7 +413,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:114](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L114)*
+*Defined in [lib/peer.ts:114](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L114)*
 
 
 
@@ -725,7 +443,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:112](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L112)*
+*Defined in [lib/peer.ts:112](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L112)*
 
 
 
@@ -755,7 +473,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:111](https://github.com/AncientSouls/Peer/blob/53cf761/src/lib/peer.ts#L111)*
+*Defined in [lib/peer.ts:111](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L111)*
 
 
 

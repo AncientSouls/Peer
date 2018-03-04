@@ -1,4 +1,4 @@
-[ancient-peer](../README.md) > [IPeerApiSendBundles](../interfaces/ipeerapisendbundles.md)
+[ancient-peer](../README.md) > ["peer"](../modules/_peer_.md) > [IPeerApiSendBundles](../interfaces/_peer_.ipeerapisendbundles.md)
 
 
 
@@ -9,7 +9,7 @@
 
 
 
-*Defined in [lib/peer.ts:81](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L81)*
+*Defined in [peer.ts:81](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L81)*
 
 
 
