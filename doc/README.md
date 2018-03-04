@@ -1,5 +1,5 @@
 
-
+Coming soon...
 
 
 ## Index
@@ -39,7 +39,6 @@
 
 ### Functions
 
-* [default](#default)
 * [defaultApi](#defaultapi)
 * [mixin](#mixin)
 
@@ -53,7 +52,7 @@
 
 **Τ TPeer**:  *[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)* 
 
-*Defined in [lib/peer.ts:39](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L39)*
+*Defined in [peer.ts:39](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L39)*
 
 
 
@@ -67,7 +66,7 @@ ___
 
 **Τ TPeerApiQuery**:  *`any`* 
 
-*Defined in [lib/peer.ts:91](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L91)*
+*Defined in [peer.ts:91](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L91)*
 
 
 
@@ -81,7 +80,7 @@ ___
 
 **Τ TPeerCursor**:  *[IPeerCursor](interfaces/ipeercursor.md)`ICursorEventsList`* 
 
-*Defined in [lib/peer.ts:52](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L52)*
+*Defined in [peer.ts:52](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L52)*
 
 
 
@@ -97,7 +96,7 @@ ___
 
 **●  MixedPeer**:  *`TClass`.<[IPeer](interfaces/ipeer.md)[IPeerEventsList](interfaces/ipeereventslist.md)>*  =  mixin(Node)
 
-*Defined in [lib/peer.ts:273](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L273)*
+*Defined in [peer.ts:273](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L273)*
 
 
 
@@ -107,28 +106,6 @@ ___
 
 
 # Functions
-<a id="default"></a>
-
-###  default
-
-► **default**(): `void`
-
-
-
-*Defined in [tests/peer.ts:6](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/tests/peer.ts#L6)*
-
-
-
-
-
-**Returns:** `void`
-
-
-
-
-
-___
-
 <a id="defaultapi"></a>
 
 ### «Const» defaultApi
@@ -137,7 +114,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:124](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L124)*
+*Defined in [peer.ts:124](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L124)*
 
 
 
@@ -167,7 +144,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:139](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L139)*
+*Defined in [peer.ts:139](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L139)*
 
 
 

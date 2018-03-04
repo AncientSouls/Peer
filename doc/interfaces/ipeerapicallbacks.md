@@ -14,7 +14,7 @@
 
 
 
-*Defined in [lib/peer.ts:88](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L88)*
+*Defined in [peer.ts:88](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L88)*
 
 
 
@@ -44,7 +44,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:87](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L87)*
+*Defined in [peer.ts:87](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L87)*
 
 
 
@@ -75,7 +75,7 @@ ___
 
 
 
-*Defined in [lib/peer.ts:86](https://github.com/AncientSouls/Peer/blob/40ee1bf/src/lib/peer.ts#L86)*
+*Defined in [peer.ts:86](https://github.com/AncientSouls/Peer/blob/86fa207/src/lib/peer.ts#L86)*
 
 
 
