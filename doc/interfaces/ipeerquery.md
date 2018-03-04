@@ -12,7 +12,7 @@
 
 **●  apiQuery**:  *`any`* 
 
-*Defined in [lib/peer.ts:57](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L57)*
+*Defined in [lib/peer.ts:57](https://github.com/AncientSouls/Peer/blob/f4c09b4/src/lib/peer.ts#L57)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  cursorId**:  *`string`* 
 
-*Defined in [lib/peer.ts:55](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L55)*
+*Defined in [lib/peer.ts:55](https://github.com/AncientSouls/Peer/blob/f4c09b4/src/lib/peer.ts#L55)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  query**:  *`any`* 
 
-*Defined in [lib/peer.ts:58](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L58)*
+*Defined in [lib/peer.ts:58](https://github.com/AncientSouls/Peer/blob/f4c09b4/src/lib/peer.ts#L58)*
 
 
 
@@ -54,7 +54,7 @@ ___
 
 **●  queryId**:  *`string`* 
 
-*Defined in [lib/peer.ts:56](https://github.com/AncientSouls/Peer/blob/e61cf1a/src/lib/peer.ts#L56)*
+*Defined in [lib/peer.ts:56](https://github.com/AncientSouls/Peer/blob/f4c09b4/src/lib/peer.ts#L56)*
 
 
 
