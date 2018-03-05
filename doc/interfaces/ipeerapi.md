@@ -9,7 +9,7 @@
 
 
 
-*Defined in [peer.ts:77](https://github.com/AncientSouls/Peer/blob/035696c/src/lib/peer.ts#L77)*
+*Defined in [peer.ts:77](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L77)*
 
 
 
