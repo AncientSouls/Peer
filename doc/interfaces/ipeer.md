@@ -63,7 +63,7 @@
 
 **●  channelsManager**:  *`TChannelsManager`* 
 
-*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L102)*
+*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L102)*
 
 
 
@@ -77,7 +77,7 @@ ___
 
 **●  cursorsManager**:  *`TCursorsManager`* 
 
-*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L103)*
+*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L103)*
 
 
 
@@ -193,7 +193,7 @@ ___
 
 **●  relations**:  *[IPeerRelationsChannels](ipeerrelationschannels.md)* 
 
-*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L105)*
+*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L105)*
 
 
 
@@ -211,7 +211,7 @@ ___
 
 
 
-*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L117)*
+*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L117)*
 
 
 
@@ -241,7 +241,7 @@ ___
 
 
 
-*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L109)*
+*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L109)*
 
 
 
@@ -271,7 +271,7 @@ ___
 
 
 
-*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L116)*
+*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L116)*
 
 
 
@@ -338,7 +338,7 @@ ___
 
 
 
-*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L110)*
+*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L110)*
 
 
 
@@ -370,7 +370,7 @@ ___
 
 
 
-*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L107)*
+*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L107)*
 
 
 
@@ -401,7 +401,7 @@ ___
 
 
 
-*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L115)*
+*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L115)*
 
 
 
@@ -432,7 +432,7 @@ ___
 
 
 
-*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L120)*
+*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L120)*
 
 
 
@@ -463,7 +463,7 @@ ___
 
 
 
-*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L121)*
+*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L121)*
 
 
 
@@ -494,7 +494,7 @@ ___
 
 
 
-*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L118)*
+*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L118)*
 
 
 
@@ -525,7 +525,7 @@ ___
 
 
 
-*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L119)*
+*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L119)*
 
 
 
@@ -664,7 +664,7 @@ ___
 
 
 
-*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L113)*
+*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L113)*
 
 
 
@@ -695,7 +695,7 @@ ___
 
 
 
-*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L114)*
+*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L114)*
 
 
 
@@ -725,7 +725,7 @@ ___
 
 
 
-*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L112)*
+*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L112)*
 
 
 
@@ -755,7 +755,7 @@ ___
 
 
 
-*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L111)*
+*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/702c3e9/src/lib/peer.ts#L111)*
 
 
 

@@ -1,6 +1,6 @@
 {
   "name": "ancient-peer",
-  "version": "0.1.0-beta",
+  "version": "0.1.0",
   "description": "Friendly core of interaction of peers.",
   "bugs": "https://github.com/AncientSouls/Peer/issues",
   "repository": "AncientSouls/Peer",
