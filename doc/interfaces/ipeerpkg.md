@@ -43,7 +43,7 @@ ___
 
 *Overrides IPkg.data*
 
-*Defined in [peer.ts:62](https://github.com/AncientSouls/Peer/blob/8680e7b/src/lib/peer.ts#L62)*
+*Defined in [peer.ts:62](https://github.com/AncientSouls/Peer/blob/b877b77/src/lib/peer.ts#L62)*
 
 
 #### Type declaration
