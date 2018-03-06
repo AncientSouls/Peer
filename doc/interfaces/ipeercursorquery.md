@@ -12,7 +12,7 @@
 
 **●  apiQuery**:  *`any`* 
 
-*Defined in [peer.ts:42](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L42)*
+*Defined in [peer.ts:42](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L42)*
 
 
 
@@ -26,7 +26,7 @@ ___
 
 **●  channelId**:  *`string`* 
 
-*Defined in [peer.ts:44](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L44)*
+*Defined in [peer.ts:44](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L44)*
 
 
 
@@ -40,7 +40,7 @@ ___
 
 **●  query**:  *`any`* 
 
-*Defined in [peer.ts:43](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L43)*
+*Defined in [peer.ts:43](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L43)*
 
 
 

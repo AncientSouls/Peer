@@ -160,7 +160,7 @@ ___
 
 **●  query**:  *[TPeerApiQuery](../#tpeerapiquery)* 
 
-*Defined in [peer.ts:48](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L48)*
+*Defined in [peer.ts:48](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L48)*
 
 
 
@@ -214,7 +214,7 @@ ___
 
 
 
-*Defined in [peer.ts:49](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L49)*
+*Defined in [peer.ts:49](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L49)*
 
 
 

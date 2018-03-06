@@ -102,7 +102,7 @@
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[channelsManager](../interfaces/ipeer.md#channelsmanager)*
 
-*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L102)*
+*Defined in [peer.ts:102](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L102)*
 
 
 
@@ -118,7 +118,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[cursorsManager](../interfaces/ipeer.md#cursorsmanager)*
 
-*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L103)*
+*Defined in [peer.ts:103](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L103)*
 
 
 
@@ -236,7 +236,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[relations](../interfaces/ipeer.md#relations)*
 
-*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L105)*
+*Defined in [peer.ts:105](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L105)*
 
 
 
@@ -256,7 +256,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[channelDestroyed](../interfaces/ipeer.md#channeldestroyed)*
 
-*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L117)*
+*Defined in [peer.ts:117](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L117)*
 
 
 
@@ -288,7 +288,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[connect](../interfaces/ipeer.md#connect)*
 
-*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L109)*
+*Defined in [peer.ts:109](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L109)*
 
 
 
@@ -320,7 +320,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[cursorDestroyed](../interfaces/ipeer.md#cursordestroyed)*
 
-*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L116)*
+*Defined in [peer.ts:116](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L116)*
 
 
 
@@ -389,7 +389,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[exec](../interfaces/ipeer.md#exec)*
 
-*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L110)*
+*Defined in [peer.ts:110](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L110)*
 
 
 
@@ -423,7 +423,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[getApiCallbacks](../interfaces/ipeer.md#getapicallbacks)*
 
-*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L107)*
+*Defined in [peer.ts:107](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L107)*
 
 
 
@@ -456,7 +456,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[gotPkg](../interfaces/ipeer.md#gotpkg)*
 
-*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L115)*
+*Defined in [peer.ts:115](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L115)*
 
 
 
@@ -489,7 +489,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[handleBundles](../interfaces/ipeer.md#handlebundles)*
 
-*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L120)*
+*Defined in [peer.ts:120](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L120)*
 
 
 
@@ -522,7 +522,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[handleDestroyed](../interfaces/ipeer.md#handledestroyed)*
 
-*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L121)*
+*Defined in [peer.ts:121](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L121)*
 
 
 
@@ -555,7 +555,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[handleQueries](../interfaces/ipeer.md#handlequeries)*
 
-*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L118)*
+*Defined in [peer.ts:118](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L118)*
 
 
 
@@ -588,7 +588,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[handleQuery](../interfaces/ipeer.md#handlequery)*
 
-*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L119)*
+*Defined in [peer.ts:119](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L119)*
 
 
 
@@ -729,7 +729,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[sendBundles](../interfaces/ipeer.md#sendbundles)*
 
-*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L113)*
+*Defined in [peer.ts:113](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L113)*
 
 
 
@@ -762,7 +762,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[sendDestroyed](../interfaces/ipeer.md#senddestroyed)*
 
-*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L114)*
+*Defined in [peer.ts:114](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L114)*
 
 
 
@@ -794,7 +794,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[sendQuery](../interfaces/ipeer.md#sendquery)*
 
-*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L112)*
+*Defined in [peer.ts:112](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L112)*
 
 
 
@@ -826,7 +826,7 @@ ___
 
 *Inherited from [IPeer](../interfaces/ipeer.md).[wrap](../interfaces/ipeer.md#wrap)*
 
-*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/f63ae3f/src/lib/peer.ts#L111)*
+*Defined in [peer.ts:111](https://github.com/AncientSouls/Peer/blob/d91bedc/src/lib/peer.ts#L111)*
 
 
 
