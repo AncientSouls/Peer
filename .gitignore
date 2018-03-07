@@ -1,10 +1,10 @@
+### Node ###
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json*
 
 # Runtime data
 pids
@@ -18,7 +18,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# NYC test coverage
+# nyc test coverage
 .nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -30,7 +30,7 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (https://nodejs.org/api/addons.html)
+# Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
 # Dependency directories
@@ -58,9 +58,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# Cloud9 IDE (https://c9.io/)
-.c9revisions
-.c9
+# Development environment temp directories
+.dev
 
-# Compiled code
-/lib
+# Lock not needed
+package-lock.json

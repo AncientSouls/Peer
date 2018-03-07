@@ -9,32 +9,14 @@ node_js:
   - "4"
 
 os:
-  - "linux"
-  - "osx"
-
-services:
-  - docker
-
-notifications:
-  email:
-    - "info@valentineus.link"
-
-before_install:
-  - npm install --global nyc
-  - npm install --global codacy-coverage
+  - linux
+  - osx
 
 install:
   - npm install
 
 script:
-  - npm run check
-  - nyc npm run test
-  - nyc report --reporter=lcov
-
-after_success:
-  - nyc report --reporter=lcov
-  - cat ./coverage/lcov.info | codacy-coverage
-
+  - npm run dev-test
 jobs:
   include:
       stage: deploy
@@ -43,21 +25,11 @@ jobs:
       before_deploy:
         - git stash --all
         - npm install
-        - npm run build
-        - npm pack
+        - npm run tsc
       deploy:
         - provider: npm
           skip_cleanup: true
-          email: "info@valentineus.link"
-          api_key: $NPM_PROJECT_TOKEN
+          email: "ancientpublicator@gmail.com"
+          api_key: $AP_NPM_API_KEY
           on:
-            tags: true
-
-        - provider: releases
-          skip_cleanup: true
-          file_glob: true
-          file: "ancient-peer-*.tgz"
-          email: "info@valentineus.link"
-          api_key: $GITHUB_PROJECT_TOKEN
-          on:
-            tags: true
+            branch: master
