@@ -1,6 +1,6 @@
 {
   "name": "ancient-peer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Friendly core of interaction of peers.",
   "bugs": "https://github.com/AncientSouls/Peer/issues",
   "repository": "AncientSouls/Peer",
@@ -14,9 +14,9 @@
   },
   "dependencies": {
     "lodash": "^4.17.5",
-    "ancient-mixins": "AncientSouls/Mixins#develop",
-    "ancient-cursor": "AncientSouls/Cursor#develop",
-    "ancient-channels": "AncientSouls/Channels#develop"
+    "ancient-mixins": "^0.0.0",
+    "ancient-cursor": "^0.1.0",
+    "ancient-channels": "^2.0.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.48",
