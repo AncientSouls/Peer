@@ -13,7 +13,8 @@ export default function () {
       
       const channelId = peer1.connect(peer2);
       
-      const cursor = peer1.exec(channelId, null, 1);
+      const cursor = peer1.cursorsManager.create();
+      cursor.exec({ channelId, apiQuery: null, query: 1 });
       assert.equal(cursor.data, 1);
       
       cursor.exec(_.extend({}, cursor.query, { query: 2 }));

@@ -57,7 +57,6 @@ interface IPeer<IEventsList extends IPeerEventsList> extends INode<IEventsList> 
     relations: IPeerRelationsChannels;
     getApiCallbacks(apiQuery: any, callback: (api: IPeerApiCallbacks) => void): void;
     connect(peer: TPeer): string;
-    exec(channelId: string, apiQuery: any, query: any): TPeerCursor;
     wrap(): void;
     sendQuery(cursor: TPeerCursor): void;
     sendBundles(channelId: string, ...bundles: ICursorBundle[]): void;
