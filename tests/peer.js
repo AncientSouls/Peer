@@ -9,7 +9,8 @@ function default_1() {
             const peer1 = new peer_1.Peer();
             const peer2 = new peer_1.Peer();
             const channelId = peer1.connect(peer2);
-            const cursor = peer1.exec(channelId, null, 1);
+            const cursor = peer1.cursorsManager.create();
+            cursor.exec({ channelId, apiQuery: null, query: 1 });
             chai_1.assert.equal(cursor.data, 1);
             cursor.exec(_.extend({}, cursor.query, { query: 2 }));
             chai_1.assert.equal(cursor.data, 2);

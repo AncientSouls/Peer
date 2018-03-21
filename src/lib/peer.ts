@@ -107,7 +107,6 @@ extends INode<IEventsList> {
   getApiCallbacks(apiQuery, callback: (api: IPeerApiCallbacks) => void): void;
   
   connect(peer: TPeer): string;
-  exec(channelId: string, apiQuery: any, query: any): TPeerCursor;
   wrap(): void;
   sendQuery(cursor: TPeerCursor): void;
   sendBundles(channelId: string, ...bundles: ICursorBundle[]): void;
@@ -160,12 +159,6 @@ function mixin<T extends TClass<IInstance>>(
       const remoteChannel = peer.channelsManager.create();
       createLocalTransport(localChannel, remoteChannel);
       return localChannel.id;
-    }
-    
-    exec(channelId, apiQuery, query) {
-      const cursor = this.cursorsManager.create();
-      cursor.exec({ channelId, apiQuery, query });
-      return cursor;
     }
     
     wrap() {
