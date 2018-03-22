@@ -56,7 +56,6 @@ interface IPeer<IEventsList extends IPeerEventsList> extends INode<IEventsList> 
     cursorsManager: TCursorsManager;
     relations: IPeerRelationsChannels;
     getApiCallbacks(apiQuery: any, callback: (api: IPeerApiCallbacks) => void): void;
-    connect(peer: TPeer): string;
     wrap(): void;
     sendQuery(cursor: TPeerCursor): void;
     sendBundles(channelId: string, ...bundles: ICursorBundle[]): void;

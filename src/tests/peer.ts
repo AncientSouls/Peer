@@ -2,6 +2,10 @@ import * as _ from 'lodash';
 import { assert } from 'chai';
 
 import {
+  default as createLocalTransport,
+} from 'ancient-channels/lib/create-local-transport';
+
+import {
   Peer,
 } from '../lib/peer';
 
@@ -11,7 +15,10 @@ export default function () {
       const peer1 = new Peer();
       const peer2 = new Peer();
       
-      const channelId = peer1.connect(peer2);
+      const localChannel = peer1.channelsManager.create();
+      const remoteChannel = peer2.channelsManager.create();
+      createLocalTransport(localChannel, remoteChannel);
+      const channelId = localChannel.id;
       
       const cursor = peer1.cursorsManager.create();
       cursor.exec({ channelId, apiQuery: null, query: 1 });
