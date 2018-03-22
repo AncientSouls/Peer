@@ -32,10 +32,6 @@ import {
   INodeEventsList,
 } from 'ancient-mixins/lib/node';
 
-import {
-  default as createLocalTransport,
-} from 'ancient-channels/lib/create-local-transport';
-
 type TPeer =  IPeer<IPeerEventsList>;
 
 interface IPeerCursorQuery {
@@ -106,7 +102,6 @@ extends INode<IEventsList> {
   
   getApiCallbacks(apiQuery, callback: (api: IPeerApiCallbacks) => void): void;
   
-  connect(peer: TPeer): string;
   wrap(): void;
   sendQuery(cursor: TPeerCursor): void;
   sendBundles(channelId: string, ...bundles: ICursorBundle[]): void;
@@ -152,13 +147,6 @@ function mixin<T extends TClass<IInstance>>(
       callback(defaultApi((channelId, bundles) => {
         this.sendBundles(channelId, bundles);
       }));
-    }
-    
-    connect(peer) {
-      const localChannel = this.channelsManager.create();
-      const remoteChannel = peer.channelsManager.create();
-      createLocalTransport(localChannel, remoteChannel);
-      return localChannel.id;
     }
     
     wrap() {
