@@ -153,13 +153,13 @@ function mixin<T extends TClass<IInstance>>(
       this.cursorsManager.on('exec', ({ cursor }) => {
         this.sendQuery(cursor);
       });
-      this.cursorsManager.on('destroyed', ({ cursor }) => {
+      this.cursorsManager.on('removed', ({ node: cursor }) => {
         this.sendDestroyed(cursor);
       });
       this.channelsManager.on('got', ({ channel, pkg }) => {
         this.gotPkg(channel.id, pkg);
       });
-      this.channelsManager.on('destroyed', ({ node: channel }) => {
+      this.channelsManager.on('removed', ({ node: channel }) => {
         this.channelDestroyed(channel.id);
       });
     }
