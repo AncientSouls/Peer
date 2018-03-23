@@ -150,13 +150,13 @@ function mixin<T extends TClass<IInstance>>(
     }
     
     wrap() {
-      this.cursorsManager.on('exec', ({ cursor }) => {
+      this.cursorsManager.list.on('exec', ({ cursor }) => {
         this.sendQuery(cursor);
       });
       this.cursorsManager.on('removed', ({ node: cursor }) => {
         this.sendDestroyed(cursor);
       });
-      this.channelsManager.on('got', ({ channel, pkg }) => {
+      this.channelsManager.list.on('got', ({ channel, pkg }) => {
         this.gotPkg(channel.id, pkg);
       });
       this.channelsManager.on('removed', ({ node: channel }) => {
@@ -165,7 +165,7 @@ function mixin<T extends TClass<IInstance>>(
     }
     
     sendQuery({ id: cursorId, queryId, query: { channelId, apiQuery, query } }) {
-      const channel = this.channelsManager.nodes[channelId];
+      const channel = this.channelsManager.list.nodes[channelId];
       if (channel) {
         channel.send({ queries: [
           { cursorId, queryId, apiQuery, query },
@@ -174,12 +174,12 @@ function mixin<T extends TClass<IInstance>>(
     }
     
     sendBundles(channelId, ...bundles) {
-      const channel = this.channelsManager.nodes[channelId];
+      const channel = this.channelsManager.list.nodes[channelId];
       if (channel) channel.send({ bundles });
     }
     
     sendDestroyed({ id: cursorId, query: { channelId } }) {
-      const channel = this.channelsManager.nodes[channelId];
+      const channel = this.channelsManager.list.nodes[channelId];
       if (channel) channel.send({ destroyed: [cursorId] });
     }
     
@@ -239,7 +239,7 @@ function mixin<T extends TClass<IInstance>>(
     
     handleBundles(channelId, pkg) {
       pkg.data.bundles.forEach((bundle) => {
-        this.cursorsManager.nodes[bundle.cursorId].apply(bundle);
+        this.cursorsManager.list.nodes[bundle.cursorId].apply(bundle);
       });
     }
     
