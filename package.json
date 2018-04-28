@@ -1,6 +1,6 @@
 {
   "name": "ancient-peer",
-  "version": "0.1.8",
+  "version": "1.0.0",
   "description": "Friendly core of interaction of peers.",
   "bugs": "https://github.com/AncientSouls/Peer/issues",
   "repository": "AncientSouls/Peer",
@@ -14,21 +14,21 @@
     "np": "./node_modules/np/cli.js --no-publish --no-yarn --yolo  --any-branch"
   },
   "dependencies": {
-    "lodash": "^4.17.5",
-    "ancient-mixins": "^0.0.11",
+    "ancient-channels": "^3.0.0",
     "ancient-cursor": "^0.2.6",
-    "ancient-channels": "^2.0.6"
+    "ancient-mixins": "^0.0.11",
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.48",
-    "@types/node": "^9.4.6",
+    "@types/node": "^9.6.7",
     "chai": "^4.1.2",
-    "mocha": "^5.0.1",
+    "mocha": "^5.1.1",
     "np": "^2.20.1",
-    "source-map-support": "^0.5.3",
+    "source-map-support": "^0.5.5",
     "tslint": "^5.9.1",
-    "tslint-config-airbnb": "^5.7.0",
+    "tslint-config-airbnb": "^5.8.0",
     "tslint-eslint-rules": "^5.1.0",
-    "typescript": "^2.7.2"
+    "typescript": "^2.8.3"
   }
 }
