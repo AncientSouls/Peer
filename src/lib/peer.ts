@@ -6,25 +6,23 @@ import {
 } from 'ancient-mixins/lib/mixins';
 
 import {
+  Manager,
+  IManager,
+  IManagerEventsList,
+} from 'ancient-mixins/lib/manager';
+
+import {
+  IBundle,
+} from 'ancient-cursor/lib/bundle';
+
+import {
   TCursor,
   ICursorEventsList,
 } from 'ancient-cursor/lib/cursor';
 
 import {
-  IPkg,
   TChannel,
 } from 'ancient-channels/lib/channel';
-
-import {
-  ICursorBundle,
-  TCursorsManager,
-  CursorsManager,
-} from 'ancient-cursor/lib/cursors-manager';
-
-import {
-  TChannelsManager,
-  ChannelsManager,
-} from 'ancient-channels/lib/channels-manager';
 
 import {
   Node,
@@ -32,105 +30,121 @@ import {
   INodeEventsList,
 } from 'ancient-mixins/lib/node';
 
-type TPeer =  IPeer<IPeerEventsList>;
+export interface IPeerBundle extends IBundle {
+  cursorId: string;
+}
 
-interface IPeerCursorQuery {
+export type TPeer =  IPeer<IPeerEventsList>;
+
+export interface IPeerCursorQuery {
   apiQuery: any;
   query: any;
   channelId: string;
 }
 
-interface IPeerCursor<IEventsList extends ICursorEventsList> extends INode<IEventsList> {
+export interface IPeerCursor<IEventsList extends ICursorEventsList> extends INode<IEventsList> {
   query: TPeerApiQuery;
   exec(query: IPeerCursorQuery, data?: any): void;
 }
 
-type TPeerCursor = IPeerCursor<ICursorEventsList>;
+export type TPeerCursor = IPeerCursor<ICursorEventsList>;
 
-interface IPeerQuery {
+export interface IPeerQuery {
   cursorId: string;
   queryId: string;
   apiQuery: any;
   query: any;
 }
 
-interface IPeerPkg extends IPkg {
-  data: {
-    queries: IPeerQuery[];
-    bundles: ICursorBundle[];
-    destroyed: string[];
-    
-    [key: string]: any;
-  };
+export interface IPkg {
+  queries?: IPeerQuery[];
+  bundles?: IPeerBundle[];
+  destroyed?: string[];
+  [key: string]: any;
 }
 
-interface IPeerEventData {
+export interface IPeerEventData {
 }
 
-interface IPeerEventsList extends INodeEventsList {
+export interface IPeerEventsList extends INodeEventsList {
 }
 
-interface IPeerApi {
-  (sendBundles: IPeerApiSendBundles): IPeerApiCallbacks;
+export interface IPeerApi {
+  (ready: IPeerApiSend): IPeerApiCallbacks;
 }
 
-interface IPeerApiSendBundles {
-  (channelId: string, ...bundles: ICursorBundle[]): void;
+export interface IPeerApiSend {
+  (channelId: string): void;
 }
 
-interface IPeerApiCallbacks {
+export interface IPeerApiCallbacks {
+  getBundles(channelId: string, cursorId: string): Promise<IPeerBundle[]>|IPeerBundle[];
   gotQuery(channelId: string, query: IPeerQuery): void;
   cursorDestroyed(channelId: string, cursorId: string): void;
   channelDestroyed(channelId: string): void;
 }
 
-type TPeerApiQuery = any;
+export type TPeerApiQuery = any;
 
-interface IPeerRelationsCursors {
+export interface IPeerRelationsCursors {
   [cursorId: string]: TPeerApiQuery;
 }
-interface IPeerRelationsChannels {
+export interface IPeerRelationsChannels {
   [channelId: string]: IPeerRelationsCursors;
 }
+export interface IPeerPrepared {
+  [channelId: string]: IPkg;
+}
 
-interface IPeer<IEventsList extends IPeerEventsList>
+export type TChannelsManager = IManager<TChannel, IManagerEventsList>;
+export type TCursorManager = IManager<TCursor, IManagerEventsList>;
+
+export interface IPeer<IEventsList extends IPeerEventsList>
 extends INode<IEventsList> {
   channelsManager: TChannelsManager;
-  cursorsManager: TCursorsManager;
+  cursorsManager: TCursorManager;
   
   relations: IPeerRelationsChannels;
+  prepared: IPeerPrepared;
   
-  getApiCallbacks(apiQuery, callback: (api: IPeerApiCallbacks) => void): void;
+  getApiCallbacks(apiQuery): Promise<IPeerApiCallbacks>;
   
   wrap(): void;
   sendQuery(cursor: TPeerCursor): void;
-  sendBundles(channelId: string, ...bundles: ICursorBundle[]): void;
+  ready(channelId: string): void;
   sendDestroyed(cursor: TPeerCursor): void;
-  gotPkg(channelId: string, pkg: IPeerPkg): void;
+  gotPkg(channelId: string, pkg: IPkg): void;
   cursorDestroyed(channelId: string, cursorId: string): void;
   channelDestroyed(channelId: string): void;
-  handleQueries(channelId: string, pkg: IPeerPkg): void;
+  handleQueries(channelId: string, pkg: IPkg): void;
   handleQuery(channelId: string, query: any): void;
-  handleBundles(channelId: string, pkg: IPeerPkg): void;
-  handleDestroyed(channelId: string, pkg: IPeerPkg): void;
+  handleBundles(channelId: string, pkg: IPkg): void;
+  handleDestroyed(channelId: string, pkg: IPkg): void;
 }
 
-const defaultApi: IPeerApi = (sendBundles) => {
+export const defaultApi: IPeerApi = (ready) => {
   return {
+    _bundles: [],
+    getBundles(channelId, cursorId) {
+      const bundles = this._bundles;
+      this._bundles = [];
+      return bundles;
+    },
     gotQuery(channelId, query) {
-      sendBundles(channelId, {
+      this._bundles.push({
         type: 'set',
         path: '',
         value: query.query,
         cursorId: query.cursorId,
       });
+      ready(channelId);
     },
     cursorDestroyed(channelId, cursorId) {},
     channelDestroyed(channelId) {},
   };
 };
 
-function mixin<T extends TClass<IInstance>>(
+export function mixin<T extends TClass<IInstance>>(
   superClass: T,
 ): any {
   return class Peer extends superClass {
@@ -140,13 +154,17 @@ function mixin<T extends TClass<IInstance>>(
     }
     
     relations = {};
-    channelsManager = new ChannelsManager();
-    cursorsManager = new CursorsManager();
+    prepared = {};
+    channelsManager: any = new Manager();
+    cursorsManager: any = new Manager();
     
-    getApiCallbacks(apiQuery, callback) {
-      callback(defaultApi((channelId, bundles) => {
-        this.sendBundles(channelId, bundles);
-      }));
+    getApiCallbacks(apiQuery) {
+      if (!this.__api) {
+        this.__api = defaultApi((channelId) => {
+          this.ready(channelId);
+        });
+      }
+      return this.__api;
     }
     
     wrap() {
@@ -156,123 +174,120 @@ function mixin<T extends TClass<IInstance>>(
       this.cursorsManager.on('removed', ({ node: cursor }) => {
         this.sendDestroyed(cursor);
       });
-      this.channelsManager.list.on('got', ({ channel, pkg }) => {
-        this.gotPkg(channel.id, pkg);
+      this.channelsManager.on('added', ({ node: channel }) => {
+        channel.getter = () => this.getPkg(channel.id);
+      });
+      this.channelsManager.list.on('got', ({ channel, data }) => {
+        this.gotPkg(channel.id, data);
       });
       this.channelsManager.on('removed', ({ node: channel }) => {
         this.channelDestroyed(channel.id);
       });
     }
     
-    sendQuery({ id: cursorId, queryId, query: { channelId, apiQuery, query } }) {
-      const channel = this.channelsManager.list.nodes[channelId];
-      if (channel) {
-        channel.send({ queries: [
-          { cursorId, queryId, apiQuery, query },
-        ]});
+    async getPkg(channelId) {
+      const prepared = this.prepared[channelId];
+      if (prepared) {
+        delete this.prepared[channelId];
+        prepared.bundles = [];
+        let cursorId;
+        for (cursorId in this.relations[channelId]) {
+          const api = await this.getApiCallbacks(this.relations[channelId][cursorId]);
+          const bundles = await api.getBundles(channelId, cursorId);
+          prepared.bundles.push(...bundles);
+        }
+        return prepared;
       }
     }
     
-    sendBundles(channelId, ...bundles) {
+    sendQuery({ id: cursorId, queryId, query: { channelId, apiQuery, query } }) {
       const channel = this.channelsManager.list.nodes[channelId];
-      if (channel) channel.send({ bundles });
+      if (channel) {
+        this.prepared[channelId] = this.prepared[channelId] || { queries: [], destroyed: [] };
+        this.prepared[channelId].queries.push({ cursorId, queryId, apiQuery, query });
+        channel.ready();
+      }
+    }
+    
+    ready(channelId) {
+      const channel = this.channelsManager.list.nodes[channelId];
+      if (channel) {
+        this.prepared[channelId] = this.prepared[channelId] || { queries: [], destroyed: [] };
+        channel.ready();
+      }
     }
     
     sendDestroyed({ id: cursorId, query: { channelId } }) {
       const channel = this.channelsManager.list.nodes[channelId];
-      if (channel) channel.send({ destroyed: [cursorId] });
+      if (channel) {
+        this.prepared[channelId] = this.prepared[channelId] || { queries: [], destroyed: [] };
+        this.prepared[channelId].destroyed.push(cursorId);
+        channel.ready();
+      }
     }
     
     gotPkg(channelId, pkg) {
-      if (pkg.data.queries) {
-        this.handleQueries(channelId, pkg);
-      }
-      if (pkg.data.bundles) {
-        this.handleBundles(channelId, pkg);
-      }
-      if (pkg.data.destroyed) {
-        this.handleDestroyed(channelId, pkg);
+      if (pkg) {
+        if (pkg.queries) {
+          this.handleQueries(channelId, pkg);
+        }
+        if (pkg.bundles) {
+          this.handleBundles(channelId, pkg);
+        }
+        if (pkg.destroyed) {
+          this.handleDestroyed(channelId, pkg);
+        }
       }
     }
     
-    cursorDestroyed(channelId, cursorId) {
+    async cursorDestroyed(channelId, cursorId) {
       const oldApiQuery = _.get(this.relations, [channelId, cursorId]);
       _.set(this.relations, [channelId, cursorId], undefined);
-      this.getApiCallbacks(oldApiQuery, ({ cursorDestroyed }) => {
-        if (cursorDestroyed) cursorDestroyed(cursorId);
-      });
+      const api = await this.getApiCallbacks(oldApiQuery);
+      if (api.cursorDestroyed) api.cursorDestroyed(channelId, cursorId);
     }
     
     channelDestroyed(channelId) {
-      _.each(this.relations[channelId], (apiQuery, cursorId) => {
-        this.getApiCallbacks(apiQuery, ({
-          cursorDestroyed,
-          channelDestroyed,
-        }) => {
-          if (cursorDestroyed) cursorDestroyed(channelId, cursorId);
-          if (channelDestroyed) channelDestroyed(channelId);
-        });
+      _.each(this.relations[channelId], async (apiQuery, cursorId) => {
+        const api = await this.getApiCallbacks(apiQuery);
+        if (api.cursorDestroyed) api.cursorDestroyed(channelId, cursorId);
+        if (api.channelDestroyed) api.channelDestroyed(channelId);
       });
       _.set(this.relations, [channelId], undefined);
     }
     
     handleQueries(channelId, pkg) {
-      pkg.data.queries.forEach((query) => {
+      pkg.queries.forEach((query) => {
         this.handleQuery(channelId, query);
       });
     }
     
-    handleQuery(channelId, query) {
+    async handleQuery(channelId, query) {
       const oldApiQuery = _.get(this.relations, [channelId, query.cursorId]);
       _.set(this.relations, [channelId, query.cursorId], query.apiQuery);
-      
+
       if (oldApiQuery && query.apiQuery !== oldApiQuery) {
-        this.getApiCallbacks(oldApiQuery, ({ cursorDestroyed }) => {
-          if (cursorDestroyed) cursorDestroyed(query.cursorId);
-        });
+        const api = await this.getApiCallbacks(oldApiQuery);
+        if (api.cursorDestroyed) api.cursorDestroyed(channelId, query.cursorId);
       }
-      
-      this.getApiCallbacks(query.apiQuery, ({ gotQuery }) => {
-        if (gotQuery) gotQuery(channelId, query);
-      });
+
+      const api = await this.getApiCallbacks(query.apiQuery);
+      if (api.gotQuery) api.gotQuery(channelId, query);
     }
     
     handleBundles(channelId, pkg) {
-      pkg.data.bundles.forEach((bundle) => {
+      pkg.bundles.forEach((bundle) => {
         this.cursorsManager.list.nodes[bundle.cursorId].apply(bundle);
       });
     }
     
     handleDestroyed(channelId, pkg) {
-      pkg.data.destroyed.forEach((cursorId) => {
+      pkg.destroyed.forEach((cursorId) => {
         this.cursorDestroyed(channelId, cursorId);
       });
     }
   };
 }
 
-const MixedPeer: TClass<IPeer<IPeerEventsList>> = mixin(Node);
-class Peer extends MixedPeer {}
-
-export {
-  mixin as default,
-  mixin,
-  MixedPeer,
-  Peer,
-  IPeer,
-  IPeerEventData,
-  IPeerEventsList,
-  TPeer,
-  IPeerQuery,
-  IPeerPkg,
-  IPeerApi,
-  IPeerCursor,
-  IPeerCursorQuery,
-  TPeerCursor,
-  IPeerApiSendBundles,
-  IPeerApiCallbacks,
-  IPeerRelationsChannels,
-  IPeerRelationsCursors,
-  TPeerApiQuery,
-  defaultApi,
-};
+export const MixedPeer: TClass<IPeer<IPeerEventsList>> = mixin(Node);
+export class Peer extends MixedPeer {}
